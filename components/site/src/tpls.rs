@@ -59,6 +59,8 @@ pub fn register_early_global_fns(site: &mut Site) {
             site.tera.clone(),
         ),
     );
+    site.tera.register_filter("dedent", filters::DedentFilter {});
+    site.tera.register_filter("strip_indent", filters::StripIndentFilter {});
 
     register_tera_global_fns(site);
 }
